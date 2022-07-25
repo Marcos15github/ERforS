@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 
 const PeopleSchema = new Schema({
     nickname: String,
-    password: String,
+    password: String
+
 });
 
 var People = mongoose.model("People", PeopleSchema);
