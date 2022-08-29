@@ -1,8 +1,8 @@
 const {app} = require("./bin/routes");
 const express = require("express");
 
+const PORT = process.env.PORT || 3000;
 
-
-app.listen(3000, () =>{
-    console.log('server on');
+app.listen(PORT, () =>{
+    console.log('server on', PORT);
 })

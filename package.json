@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index"
   },
   "author": "Marcos Atencia, Lez Gonzalez, Lina Lopez, Heidy Estrada  y Christian Causil",
   "license": "MIT",

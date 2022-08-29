@@ -285,7 +285,33 @@ app.delete("/Recurso/:id", function(req, res){
     controller.deleteRecurso(id, res);
 });
 //----------------------------------------------------
-
+//COLEGIO
+//----------------------------------------------------
+//agregar Colegio
+app.post("/Colegio", function(req,res){
+    let { colegio} = req.body;
+    controller.setColegio(colegio, res);
+});
+//traer Colegio
+app.get("/Colegio", (req, res) => {
+    controller.getColegio(res);
+}); 
+//traer Colegio por id
+app.get("/Colegio/:id", function(req, res){
+    let { id } = req.params;
+    controller.getColegioId(id, res);
+});
+//Actualizar una Colegio por id
+app.put("/Colegio/:id", function(req, res){
+    let colegio = req.body.colegio;
+    colegio.id = req.params.id;
+    controller.updateColegio(colegio, res);
+});
+//eliminar una Colegio por id
+app.delete("/Colegio/:id", function(req, res){
+    let {id} = req.params;
+    controller.deleteColegio(id, res);
+});
 
 
 

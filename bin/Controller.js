@@ -9,6 +9,7 @@ const Periodo = require('./models/Periodo');
 const Login = require('./models/Login');
 const Estudiante = require('./models/Estudiante');
 const Recurso = require('./models/Recurso');
+const Colegio = require('./models/Colegio');
 
 
 
@@ -494,6 +495,59 @@ deleteRecurso(id, res){
         res.send({message: "Recurso eliminado"});
     });
 };
+
+
 //--------------------------------------------------------------
+
+//COLEGIO
+
+//--------------------------------------------------------------
+
+//agregar Colegio 
+setColegio(colegio, res){
+    Colegio.create(colegio, function(err, newColegio){
+    if(err) throw err;
+    res.send({status: 200, nU: newColegio});
+})
+};
+// traer Colegio
+getColegio(res){
+    Colegio.find({}, (err, colegio) => {
+     if(err) throw err;
+    res.send( colegio );
+  
+});
+};
+//traer Colegio por id
+getColegioId(id, res){
+    Colegio.find({_id: id}, (err, ColegioId) =>{
+        if(err) throw err;
+        res.send({ colegio: ColegioId})
+    })
+};
+
+//actualizar Colegio por id
+updateColegio(colegio, res){
+    let {id, nombre, año, telefono, direccion, descripcion, ubicacion} = colegio;
+    Colegio.updateOne(
+        {_id: id},
+        { $set: {nombre: nombre, año: año, telefono: telefono, direccion: direccion, descripcion: descripcion, ubicacion: ubicacion}}
+    )
+    .then(rawResponse => {
+        res.send({message: "Colegio updated", raw: rawResponse})
+    })
+    .catch(err => {
+        if (err) throw err;
+    });
+};
+//eliminar Colegio por id
+deleteColegio(id, res){
+    Colegio.deleteOne({_id: id }, function(err){
+        if (err) throw err;
+        res.send({message: "Colegio eliminado"});
+    });
+};
+
+
 }
 exports.controller = new Controller();
