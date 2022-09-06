@@ -49,7 +49,7 @@ class Controller{
      //auth
      getAuth(people, res){
         let {nickname,password} = people;
-        console.log(nickname);
+        
         People.findOne({nickname},(err, people)=>{
             if(err) {
                 res.status(500).send("Error al autenticar Usuario")
