@@ -15,6 +15,14 @@ app.post("/peoples", function(req, res){
     let { people } = req.body;
     controller.setPeople(people, res);
 });
+
+//Autenticación 
+
+app.post("/auth", function(req, res){
+    people  = req.body;
+   controller.getAuth(people, res);
+});
+
 //traer a los people
 app.get("/peoples", (req, res) => {
     controller.getPeople(res);

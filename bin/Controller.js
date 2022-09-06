@@ -46,6 +46,28 @@ class Controller{
             res.send( peoples );
         })
     };
+     //auth
+     getAuth(people, res){
+        let {nickname,password} = people;
+        console.log(nickname);
+        People.findOne({nickname},(err, people)=>{
+            if(err) {
+                res.status(500).send("Error al autenticar Usuario")
+            }
+            else if(!people){
+                res.status(500).send("No existe el usuario")
+            }
+            else
+              {
+                if (password == people.password)
+                res.status(200).send("Loguin exitoso...")
+                else 
+                res.status(500).send("Usuario invalido")
+         
+              }
+           })
+           
+    };
 
 //----------------------------------------------------------
 
