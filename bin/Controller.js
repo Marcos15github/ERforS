@@ -62,7 +62,7 @@ class Controller{
                 if (password == people.password)
                 res.status(200).send("Loguin exitoso...")
                 else 
-                res.status(500).send("Usuario invalido")
+                res.status(200).send("Usuario invalido")
          
               }
            })
