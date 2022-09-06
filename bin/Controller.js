@@ -49,13 +49,13 @@ class Controller{
      //auth
      getAuth(people, res){
         let {nickname,password} = people;
-        
+
         People.findOne({nickname},(err, people)=>{
             if(err) {
                 res.status(500).send("Error al autenticar Usuario")
             }
             else if(!people){
-                res.status(500).send("No existe el usuario")
+                res.status(200).send("No existe el usuario")
             }
             else
               {
