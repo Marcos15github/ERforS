@@ -52,7 +52,7 @@ class Controller{
 
         People.findOne({nickname},(err, people)=>{
             if(err) {
-                res.status(500).send("Error al autenticar Usuario")
+                res.status(200).send("Error al autenticar Usuario")
             }
             else if(!people){
                 res.status(200).send("No existe el usuario")
