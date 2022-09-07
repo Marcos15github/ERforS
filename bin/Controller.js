@@ -11,6 +11,7 @@ const Estudiante = require('./models/Estudiante');
 const Recurso = require('./models/Recurso');
 const Colegio = require('./models/Colegio');
 const e = require('express');
+const { response } = require('express');
 
 
 
@@ -61,13 +62,19 @@ class Controller{
               else if(!people){
                 res.status(200).send("No existe el usuario")
                }
-            else
-              {
-                if (password==people.password)
+            else{
+                if(password == "" && nickname == ""){
+                    res.status(200).send("No digito ningun campo")
+                }
+                else if(password == ""){
+                res.status(200).send("No ingreso contraseña")
+                }
+                else if (password==people.password){
                 res.status(200).send("Loguin exitoso...")
-                else 
+                }
+                else{
                 res.status(200).send("Usuario invalido")
-         
+                }
               }
            })
            
