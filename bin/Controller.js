@@ -55,7 +55,7 @@ class Controller{
             if(err) {
                 res.status(200).send("Error al autenticar Usuario")
             }
-           else if (people==''){
+           else if (nickname.people==''){
                 res.status(200).send("No ingreso Usuario")
             }
               else if(!people){
