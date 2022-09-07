@@ -56,20 +56,19 @@ class Controller{
             if(err) {
                 res.status(200).send("Error al autenticar Usuario")
             }
-           else if (nickname == ""){
+           else if(password == "" && nickname == ""){
+            res.status(200).send("No digito ningun campo")
+            }
+              else if (nickname == ""){
                 res.status(200).send("No ingreso Usuario")
             }
-              else if(!people){
+            else{if(!people){
                 res.status(200).send("No existe el usuario")
                }
-            else{
-                if(password == "" && nickname == ""){
-                    res.status(200).send("No digito ningun campo")
-                }
                 else if(password == ""){
                 res.status(200).send("No ingreso contraseña")
                 }
-                else if (password==people.password){
+                else if (password == people.password){
                 res.status(200).send("Loguin exitoso...")
                 }
                 else{
