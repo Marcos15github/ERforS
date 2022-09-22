@@ -81,7 +81,7 @@ class Controller{
     };
 
 //----------------------------------------------------------
-//Controlador para traer roles
+//Controlador de roles
 
 getRole(res){
     Role.find({},(err, roles)=>{
@@ -91,6 +91,12 @@ getRole(res){
     })
 };
 
+setRole(role, res){
+    Role.create(role, function(err, newrole){
+        if(err) throw err;
+        res.send({status: 200, pU: newrole});
+    })
+};
 
 // PERSONAS
 

@@ -24,8 +24,13 @@ app.post("/auth", function(req, res){
 });
 //----------------------------------------
 //traer roles Roles
-app.get("/roles", (req, res) => {
+app.get("/Roles", (req, res) => {
     controller.getRole(res);
+});
+// agregar roles Roles
+app.post("/Roles", function(req,res){
+    let { role } = req.body;
+    controller.setRole(role, res);
 });
 
 //traer a los people
