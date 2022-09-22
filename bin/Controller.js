@@ -10,6 +10,7 @@ const Login = require('./models/Login');
 const Estudiante = require('./models/Estudiante');
 const Recurso = require('./models/Recurso');
 const Colegio = require('./models/Colegio');
+const Role = require('./models/Role');
 const e = require('express');
 const { response } = require('express');
 
@@ -80,6 +81,16 @@ class Controller{
     };
 
 //----------------------------------------------------------
+//Controlador para traer roles
+
+getRole(res){
+    Role.find({},(err, roles)=>{
+        if(err) throw err;
+
+        res.send( roles );
+    })
+};
+
 
 // PERSONAS
 
