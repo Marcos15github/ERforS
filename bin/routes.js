@@ -29,7 +29,7 @@ app.get("/roles", (req, res) => {
 });
 // agregar roles Roles
 app.post("/roles", function(req,res){
-    let { role } = req.body;
+    const role = req.body;
     controller.setRole(role, res);
 });
 
