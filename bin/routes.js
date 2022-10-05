@@ -34,7 +34,7 @@ app.post("/roles", function(req,res){
 });
 //eliminar rol por id
 app.delete("/roles/:id", function(req, res){
-    let {id} = req.params;
+    const {id} = req.params;
     controller.deleteRole(id, res);
 });
 
