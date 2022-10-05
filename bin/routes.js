@@ -32,11 +32,17 @@ app.post("/roles", function(req,res){
     const role = req.body;
     controller.setRole(role, res);
 });
+//eliminar rol por id
+app.delete("/roles/:id", function(req, res){
+    let {id} = req.params;
+    controller.deleteRole(id, res);
+});
 
 //traer a los people
 app.get("/peoples", (req, res) => {
     controller.getPeople(res);
 });
+
 //---------------------------------------------------
 
 // PERSONAS 

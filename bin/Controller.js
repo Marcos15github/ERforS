@@ -97,6 +97,13 @@ setRole(role, res){
         res.send({status: 200, pU: newrole});
     })
 };
+ //eliminar rol por id
+ deletePersona(id, res){
+    Role.deleteOne({_id: id }, function(err){
+        if (err) throw err;
+        res.send({message: "Rol eliminada"});
+    });
+};
 
 // PERSONAS
 
